@@ -66,7 +66,7 @@ The trained model achieves:
 
 Output is in the form of a video, which will tell violence/ non-violence on the top left corner.
 
-![v_output](https://user-images.githubusercontent.com/56165694/123710940-366c7d00-d88d-11eb-866e-c09e2185c571.gif)
+![output](output/Output.gif)
 
 ## How to Start
 
