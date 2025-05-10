@@ -18,6 +18,7 @@ dependencies:
   - attrs=24.3.0
   - blas=1.0
   - blinker=1.9.0
+  - bottleneck=1.4.2
   - brotli-python=1.0.9
   - bzip2=1.0.8
   - c-ares=1.19.1
@@ -31,6 +32,8 @@ dependencies:
   - comm=0.2.1
   - contourpy=1.3.1
   - cryptography=41.0.3
+  - cudatoolkit=11.2.2
+  - cudnn=8.1.0.77
   - cycler=0.11.0
   - debugpy=1.8.11
   - decorator=5.1.1
@@ -43,6 +46,7 @@ dependencies:
   - freetype=2.13.3
   - frozenlist=1.5.0
   - gast=0.4.0
+  - geos=3.10.6
   - gettext=0.21.1
   - giflib=5.2.2
   - glib=2.68.4
@@ -59,6 +63,8 @@ dependencies:
   - icc_rt=2022.1.0
   - icu=58.2
   - idna=3.7
+  - imageio=2.37.0
+  - imgaug=0.4.0
   - imutils=0.5.4
   - intel-openmp=2023.1.0
   - ipykernel=6.29.5
@@ -73,6 +79,7 @@ dependencies:
   - keras-preprocessing=1.1.2
   - kiwisolver=1.4.8
   - krb5=1.20.1
+  - lazy_loader=0.4
   - lerc=2.2.1
   - libclang=14.0.6
   - libclang13=14.0.6
@@ -105,6 +112,8 @@ dependencies:
   - mkl_random=1.2.8
   - multidict=6.1.0
   - nest-asyncio=1.6.0
+  - networkx=3.4.2
+  - numexpr=2.10.1
   - numpy=1.26.4
   - numpy-base=1.26.4
   - oauthlib=3.2.2
@@ -112,6 +121,7 @@ dependencies:
   - openssl=1.1.1w
   - opt_einsum=3.3.0
   - packaging=24.2
+  - pandas=2.2.3
   - parso=0.8.4
   - pcre=8.45
   - pillow=9.3.0
@@ -137,6 +147,8 @@ dependencies:
   - python=3.10.0
   - python-dateutil=2.9.0post0
   - python-flatbuffers=24.3.25
+  - python-tzdata=2025.2
+  - pytz=2024.1
   - pywin32=308
   - pyzmq=26.2.0
   - qt-main=5.15.2
@@ -146,9 +158,12 @@ dependencies:
   - requests=2.32.3
   - requests-oauthlib=2.0.0
   - rsa=4.7.2
+  - scikit-image=0.24.0
   - scikit-learn=1.6.1
   - scipy=1.15.2
+  - seaborn=0.13.2
   - setuptools=78.1.1
+  - shapely=2.0.6
   - sip=6.7.12
   - six=1.17.0
   - snappy=1.2.1
@@ -162,6 +177,7 @@ dependencies:
   - tensorflow-base=2.10.0
   - tensorflow-estimator=2.10.0
   - termcolor=2.1.0
+  - tifffile=2025.2.18
   - tk=8.6.14
   - tomli=2.0.1
   - tornado=6.4.2
