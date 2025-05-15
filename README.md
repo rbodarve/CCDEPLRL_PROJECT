@@ -55,8 +55,8 @@ MobileNetV2 is used to with improved accuracy and predictions. It was chosen in 
 The trained model achieves:
 
 - **Overall accuracy**: ~96.6%
-- **Violence detection accuracy**: ~97.1%
-- **Non-violence detection accuracy**: ~96.1%
+- **Violence detection accuracy**: ~96.1%
+- **Non-violence detection accuracy**: ~97.1%
 
 ![Training and Validation Accuracy](images/accuracy.png)
 ![Training and Validation Loss](images/loss.png)
@@ -102,28 +102,18 @@ conda activate CCDEPLRL_PROJECT
 ### Data Preparation
 
 1. Place violence and non-violence videos in the kaggle dataset in their respective directories under `video/`
-2. Run the frame extraction script:
-
-```bash
-python extract_frames_from_video.py
-```
+2. Run the frame extraction Jupyter Notebook
 
 ### Training the Model
 
-```bash
-python mobilenetv2-model-collab.py
-```
+1. Run the mobilenetv2 Jupyter Notebook
 
 ### Processing Videos
 
 1. Place videos to be analyzed in the `input/` directory
 2. Run the prediction script:
-
-```bash
-python predict_video.py
-```
-
-3. Processed videos will be saved in the `output/` directory
+3. Run the frame extraction Jupyter Notebook
+4. Processed videos will be saved in the `output/` directory
 
 ## Model Architecture
 
