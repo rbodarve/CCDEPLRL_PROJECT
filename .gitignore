@@ -1,0 +1,12 @@
+data/
+data
+/data
+/lib/
+/lib64/
+/tf_env/
+lib/
+lib64/
+.vscode/
+/.vscode
+pyvenv.cfg
+/video
