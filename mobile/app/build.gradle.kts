@@ -27,7 +27,7 @@ android {
     }
 
     aaptOptions {
-        noCompress +="tflite"
+        noCompress += "tflite"
     }
 
     compileOptions {
@@ -50,4 +50,5 @@ dependencies {
     implementation(libs.camera.camera2)
     implementation(libs.camera.lifecycle)
     implementation(libs.camera.view)
+    implementation(libs.tensorflow.lite.select.tf.ops)
 }

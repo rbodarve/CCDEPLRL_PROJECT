@@ -37,11 +37,13 @@
         android:layout_height="match_parent" />
     <TextView
         android:id="@+id/outputText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Violence detection"
         android:textSize="20sp"
         android:textColor="@color/white"
         android:padding="10sp"
+        android:letterSpacing="0.05"
+        android:textStyle="bold"
     />
 </androidx.constraintlayout.widget.ConstraintLayout>
