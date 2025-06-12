@@ -10,3 +10,4 @@ lib64/
 /.vscode
 pyvenv.cfg
 /video
+mobile/
