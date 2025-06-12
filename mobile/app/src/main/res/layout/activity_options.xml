@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="224dp"
+        android:layout_height="221dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="178dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="250dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/gru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#007ACC"
+            android:fontFamily="@font/inter"
+            android:letterSpacing="0.1"
+            android:text="MobilenetV2-GRU"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            app:strokeColor="#007ACC"
+            app:strokeWidth="2px" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/conv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#007ACC"
+            android:fontFamily="@font/inter"
+            android:letterSpacing="0.1"
+            android:text="MobilenetV2-Conv1d"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            app:strokeColor="#007ACC"
+            app:strokeWidth="2px" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tsm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#007ACC"
+            android:fontFamily="@font/inter"
+            android:letterSpacing="0.1"
+            android:text="MobilenetV2-TSM"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            app:strokeColor="#007ACC"
+            app:strokeWidth="2px" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/base"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:backgroundTint="#007ACC"
+            android:fontFamily="@font/inter"
+            android:letterSpacing="0.1"
+            android:text="MobilenetV2-Base"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:cornerRadius="0dp"
+            app:strokeColor="#007ACC"
+            app:strokeWidth="2px" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="87dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="600dp"
+        android:fontFamily="@font/inter"
+        android:letterSpacing="0.05"
+        android:text="Violence Detection"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
