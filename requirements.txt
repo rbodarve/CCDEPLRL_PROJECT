@@ -62,7 +62,7 @@ opt-einsum
 packaging
 pandas==2.2.3
 parso
-Pillow==12.1.1
+Pillow==12.2.0
 platformdirs
 ply==3.11
 prompt-toolkit

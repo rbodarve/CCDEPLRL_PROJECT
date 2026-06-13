@@ -1,17 +1,31 @@
-data/
-data
-/data
+# Virtual environments
 /lib/
-/lib64/
+/lib64
 /tf_env/
-lib/
-lib64/
-.vscode/
-/.vscode
 pyvenv.cfg
-/video
+.venv/
+venv/
 
-# Binary artifacts
-output/
-logs/
-model/input/
+# Editor / IDE
+.vscode/
+.claude/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Datasets & media inputs
+/data/
+/input/
+/video/
+
+# Model artifacts (weights, checkpoints, exported models)
+/model/
+*.h5
+*.tflite
+*.weights.h5
+
+# Generated outputs & logs
+/output/
+/logs/
