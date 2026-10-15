@@ -1,0 +1,21 @@
+# Keep the build context small — these are mounted at runtime, not baked in.
+.git
+.gitignore
+.claude
+.vscode
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Large data / artifacts (mount as volumes instead of copying into the image)
+data/
+input/
+video/
+output/
+logs/
+model/
+lib/
+lib64
+tf_env/
+.venv/
+venv/

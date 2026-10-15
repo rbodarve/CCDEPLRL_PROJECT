@@ -1,0 +1,28 @@
+# Runs the notebook environment with GPU access via the NVIDIA container runtime.
+#
+# Requires on the host:
+#   - NVIDIA GPU driver
+#   - NVIDIA Container Toolkit  (provides the `nvidia` runtime)
+#     https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+#
+# Start:   docker compose up --build
+# Open:    http://localhost:8888/lab
+services:
+  notebook:
+    build: .
+    image: violence-detection:tf2.19-gpu
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/workspace          # live-mount the repo (notebooks, model/, data/)
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    # GPU reservation through the NVIDIA container runtime
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
