@@ -28,12 +28,10 @@ MobileNetV2 is used to with improved accuracy and predictions. It was chosen in 
 ├── data/                            # Directory for extracted frames
 │   ├── Violence/                   # Frames from violent videos
 │   └── NonViolence/                # Frames from non-violent videos
-├── model/                          # Directory for saved models
-│   ├── model.h5                    # Complete trained model
-│   └── ModelWeights.h5             # Model weights only
-├── video/                          # Source videos for training
-│   ├── Violence/                   # Violent video clips
-│   └── NonViolence/                # Non-violent video clips
+├── model/                          # Directory for saved models (one subfolder per variant)
+│   ├── base/                       # Baseline model: model.h5, ModelWeights.h5, violence_model.tflite
+│   ├── 20k/                        # Trained on 20k frames
+│   └── all_224/                    # Trained on the full dataset at 224x224
 ├── input/                          # Directory for videos to be processed
 ├── output/                         # Directory for processed output videos
 ├── logs/                           # Serves for monitoring and visualizing the model
@@ -42,13 +40,18 @@ MobileNetV2 is used to with improved accuracy and predictions. It was chosen in 
 │   ├── accuracy.png                # Training/validation accuracy graph
 │   ├── loss.png                    # Training/validation loss graph
 │   └── confusion_matrix.png        # Confusion matrix visualization
-├── mobilenetv2-model-collab.ipynb  # Model training script
+├── mobilenetv2-model.ipynb         # Model training notebook
 ├── extract_frames_from_video.ipynb # Script to extract frames from videos
 ├── predict_video.ipynb             # Script to process and analyze videos
 ├── environment.yml                 # Conda environment specification
-├── requirements.txt                # Python dependencies
+├── requirements.txt                # Python dependencies (pip)
+├── env_requirements.txt            # Pinned pip dependencies (exact versions)
 └── README.md                       # This file
 ```
+
+> **Note:** The `data/`, `model/`, `input/`, `output/`, and `logs/` directories hold datasets, trained
+> weights, and generated artifacts. They are excluded from version control via `.gitignore` — create them
+> locally when preparing data or running the notebooks.
 
 ## Performance
 
@@ -73,8 +76,9 @@ Output is in the form of a video, which will tell violence/ non-violence on the 
 ### Prerequisites
 
 - Python 3.10
-- TensorFlow 2.10.0
-- OpenCV 4.6.0
+- TensorFlow 2.19.0
+- Keras 3.12.1
+- OpenCV 4.8.1
 - NumPy 1.26.4
 - Pandas 2.2.3
 - Matplotlib 3.10.0

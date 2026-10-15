@@ -29,3 +29,8 @@ __pycache__/
 # Generated outputs & logs
 /output/
 /logs/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+desktop.ini
