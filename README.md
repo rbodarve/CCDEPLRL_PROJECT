@@ -151,3 +151,16 @@ The system uses MobileNetV2 with the following modifications:
 - Utilize the full dataset from 10000 to all the extracted frames (more date better generalization)
 - Increase patience from 5 to 10-20 (better converge)
 - Increase epoch from 50 to between 50-100 (better converge)
+
+## Known Issues in This README
+
+Parts of this README do not match the current code. The notebooks are correct.
+
+- Image size: "Model Architecture" says 128x128. Both notebooks use 224x224 (`IMG_SIZE = 224`).
+- Sample count: "Performance Optimization" says 10000 samples. The training notebook sets `MAX_SAMPLES_PER_CLASS = 20000`.
+- Project Structure: the tree does not list `mobilenetv2-mode_ORIGINAl.ipynb`, `Dockerfile`, `docker-compose.yml` or `.dockerignore`.
+- Source videos: the frame extraction notebook reads `video/Violence` and `video/NonViolence`. The tree does not show `video/`. Git ignores this folder.
+- Processing Videos: step 2 is incomplete. Step 3 should say `predict_video.ipynb`, not the frame extraction notebook.
+- Output GIF: Git ignores `output/Output.gif`, so the image in "Output" does not show in the online repository.
+- Clone URL: `yourusername/violence-detection` is a placeholder.
+- Python version: Prerequisites list Python 3.10. The Docker image uses Python 3.11.
