@@ -103,6 +103,17 @@ conda env create -f environment.yml
 conda activate CCDEPLRL_PROJECT
 ```
 
+### Docker (GPU environment)
+
+The Docker setup gives a container with TensorFlow 2.19 (GPU build) and JupyterLab.
+
+- Host needs: an NVIDIA GPU driver and Docker Desktop with GPU support (NVIDIA Container Toolkit).
+- Start: `docker compose up --build`, then open http://localhost:8888/lab.
+- Access: JupyterLab asks for no token or password.
+- Security: the port is bound to 127.0.0.1, so only this computer can reach Jupyter.
+- Files: the repo folder is mounted at `/workspace`. Edits in the container change the real files.
+- GPU access inside the container is not tested.
+
 ### Data Preparation
 
 1. Place violence and non-violence videos in the kaggle dataset in their respective directories under `video/`

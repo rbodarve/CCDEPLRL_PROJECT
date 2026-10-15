@@ -12,7 +12,7 @@ services:
     build: .
     image: violence-detection:tf2.19-gpu
     ports:
-      - "8888:8888"
+      - "127.0.0.1:8888:8888"
     volumes:
       - .:/workspace          # live-mount the repo (notebooks, model/, data/)
     environment:
