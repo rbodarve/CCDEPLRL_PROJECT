@@ -154,13 +154,30 @@ The system uses MobileNetV2 with the following modifications:
 
 ## Known Issues in This README
 
-Parts of this README do not match the current code. The notebooks are correct.
+Parts of this README do not match the current code.
 
-- Image size: "Model Architecture" says 128x128. Both notebooks use 224x224 (`IMG_SIZE = 224`).
-- Sample count: "Performance Optimization" says 10000 samples. The training notebook sets `MAX_SAMPLES_PER_CLASS = 20000`.
+- Image size: "Model Architecture" says 128x128. `mobilenetv2-model.ipynb` uses 224x224 (`IMG_SIZE = 224`). `mobilenetv2-mode_ORIGINAl.ipynb` uses 128x128.
+- Sample count: "Performance Optimization" says 10000 samples. In `mobilenetv2-model.ipynb` the `MAX_SAMPLES_PER_CLASS = 20000` line is commented out, so the active generator uses all frames. `mobilenetv2-mode_ORIGINAl.ipynb` caps at 10000 per class.
 - Project Structure: the tree does not list `mobilenetv2-mode_ORIGINAl.ipynb`, `Dockerfile`, `docker-compose.yml` or `.dockerignore`.
 - Source videos: the frame extraction notebook reads `video/Violence` and `video/NonViolence`. The tree does not show `video/`. Git ignores this folder.
 - Processing Videos: step 2 is incomplete. Step 3 should say `predict_video.ipynb`, not the frame extraction notebook.
 - Output GIF: Git ignores `output/Output.gif`, so the image in "Output" does not show in the online repository.
 - Clone URL: `yourusername/violence-detection` is a placeholder.
 - Python version: Prerequisites list Python 3.10. The Docker image uses Python 3.11.
+
+## Review notes (2026-10-18)
+
+Code review of branch `additional`. `[ran]` = seen when running a copy of the notebook on CPU. `[read]` = found by reading the code. The code is not changed.
+
+1. `mobilenetv2-model.ipynb` cell 12 uses `X_original`, which only exists in a commented-out cell. "Run All" stops with `NameError` before training. [ran]
+2. Training saves `model/model_all_224.h5`. `predict_video.ipynb` loads `model/all_224/model_all_224.h5`. After a new training run, the file must be moved by hand. [read]
+3. `process_video(display=True)` calls `cv2.imshow`. The Docker image installs `opencv-python-headless`, so display fails in Docker. Use `display=False` there. [read]
+4. `LearningRateScheduler` sets the learning rate at the start of each epoch, and `lrfn` ignores the current rate. So it cancels every cut from `ReduceLROnPlateau`. [read]
+5. The validation set is also the model-selection set (checkpoint, early stopping) and the reported test set. There is no held-out test set, so the ~96.6 % accuracy is optimistic. [read]
+6. `get_best_epoch` matches `val_loss` rounded to 2 decimals, so it can return the wrong epoch. `np.argmin(history.history['val_loss'])` is exact. [read]
+7. Inputs are scaled to [0, 1]. The ImageNet weights of MobileNetV2 expect [-1, 1] (`preprocess_input`). Train and predict use the same scaling, so there is no mismatch, but transfer is weaker. [read]
+8. `mobilenetv2-mode_ORIGINAl.ipynb` trains on BGR frames (`cv2.imread`), but `predict_video.ipynb` feeds RGB. Its split is per frame, not per video, so near-identical frames are in train and test and the test score is inflated. [read]
+9. `requirements.txt` has no OpenCV. `environment.yml` pins CUDA 11.2 / cuDNN 8.1, but TensorFlow 2.19 needs CUDA 12. [read]
+10. `extract_frames_from_video.ipynb` stops with `NameError: video_files` when `video/` is missing. [ran]
+
+Not tested: training (dataset and `video/` not on disk, GPU needed), Docker (daemon off) and `display=True`. `predict_video.ipynb` ran top to bottom with `display=False`.
